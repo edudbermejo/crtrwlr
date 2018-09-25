@@ -59,13 +59,33 @@ ul.vehicle-list {
 	font-size: 18px;
 }
 
-ul.vehicle-list > li {
-	margin: 6px 0;
+.vehicle {
+	margin: 12px 0;
 	border: 1px solid #777;
 	padding: 10px;
 	position: relative;
 	height: 100px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.vehicle > * {
+	flex-basis: 25%;
+}
+
+.vehicle-information-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.vehicle .vendor-name {
+	text-align: center;
+}
+
+.vehicle .price {
+	font-weight: bold;
+	font-size: 2em;
 }
 
 ul.sorting {

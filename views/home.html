@@ -28,8 +28,20 @@
 </div>
 
 <ul class="vehicle-list">
-	<li ng-repeat="car in filteredCars = (cars | filter : search : strict) | orderBy : orderBy">
-		I AM A CAR BLOCK - SURELY YOU CAN MAKE ME LOOK BETTER!
+	<li ng-repeat="car in filteredCars = (cars | filter : search : strict) | orderBy : orderBy" class="vehicle">
+		<div class="vehicle-image-container">
+			<img ng-src="{{car.PictureURL}}" alt="car picture">
+		</div>
+		<div class="vehicle-information-container">
+			<ul>
+				<li>{{car.MakeModel}}</li>
+				<li>{{car.FuelType}}</li>
+				<li ng-if="car.DriveType !== 'Unspecified'">{{car.DriveType}}</li>
+				<li>{{car.PassengerQuantity}} passengers ({{car.DoorCount}} doors)</li>
+			</ul>
+		</div>
+		<span class="vendor-name">{{car.VendorName}}</span>
+		<span class="price">{{car.EstimatedTotalAmount}} {{car.CurrencyCode}}</span>
 	</li>
 </ul>
 <p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>
