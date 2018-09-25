@@ -1,0 +1,38 @@
+<h2>Available Vehicles</h2>
+<div>
+	<div class="legend">
+		<p>
+			Pick up:
+		</p>
+		<p>
+			{{model.PickUpLocation}} on {{model.PickUpDateTime | date : 'medium'}}
+		</p>
+	</div>
+	<div class="legend">
+		<p>
+			Return:
+		</p>
+		<p>
+			{{model.ReturnLocation}} on {{model.ReturnDateTime | date : 'medium'}}
+		</p>
+	</div>
+</div>
+<div class="filter">
+	<input type="search" ng-change="filtered()" ng-model="search.MakeModel" placeholder="Search for a vehicle model" />
+	<span class="info" title="The last user filter/sort will be stored and will become the initial value for the next access to the page">(i)</span>
+	<ul class="sorting">
+		<li ng-repeat="item in sortOptions" 
+			ng-class="{selected: orderBy.replace('-', '') == item.value, desc: orderBy[0] == '-'}" 
+			ng-click="sort(item.value)">{{item.label}}</li>
+	</ul>
+</div>
+
+<ul class="vehicle-list">
+	<li ng-repeat="car in filteredCars = (cars | filter : search : strict) | orderBy : orderBy">
+		I AM A CAR BLOCK - SURELY YOU CAN MAKE ME LOOK BETTER!
+	</li>
+</ul>
+<p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>
+<div class="loading-indicator" ng-show="isLoading">
+	I AM A LOADING INDICATOR - SURELY YOU CAN MAKE ME ANIMATE BETTER!
+</div>
