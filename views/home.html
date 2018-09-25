@@ -33,10 +33,10 @@
 			<img ng-src="{{car.PictureURL}}" alt="car picture">
 		</div>
 		<div class="vehicle-information-container">
+			<h3 class="model">{{car.MakeModel}}</h3>
 			<ul>
-				<li>{{car.MakeModel}}</li>
 				<li>{{car.FuelType}}</li>
-				<li ng-if="car.DriveType !== 'Unspecified'">{{car.DriveType}}</li>
+				<li ng-if="car.DriveType !== 'Unspecified'">Drive type: {{car.DriveType}}</li>
 				<li>{{car.PassengerQuantity}} passengers ({{car.DoorCount}} doors)</li>
 			</ul>
 		</div>

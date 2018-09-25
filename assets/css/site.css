@@ -79,6 +79,10 @@ ul.vehicle-list {
 	flex-direction: column;
 }
 
+.vehicle .model {
+	font-size: 1.3em;
+}
+
 .vehicle .vendor-name {
 	text-align: center;
 }
