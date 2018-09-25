@@ -21,8 +21,8 @@
 	<input type="search" ng-change="filtered()" ng-model="search.MakeModel" placeholder="Search for a vehicle model" />
 	<span class="info" title="The last user filter/sort will be stored and will become the initial value for the next access to the page">(i)</span>
 	<ul class="sorting">
-		<li ng-repeat="item in sortOptions" 
-			ng-class="{selected: orderBy.replace('-', '') == item.value, desc: orderBy[0] == '-'}" 
+		<li ng-repeat="item in sortOptions"
+			ng-class="{selected: orderBy.replace('-', '') == item.value, desc: orderBy[0] == '-'}"
 			ng-click="sort(item.value)">{{item.label}}</li>
 	</ul>
 </div>
@@ -33,6 +33,6 @@
 	</li>
 </ul>
 <p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>
-<div class="loading-indicator" ng-show="isLoading">
-	I AM A LOADING INDICATOR - SURELY YOU CAN MAKE ME ANIMATE BETTER!
+<div class="loading-container"  ng-show="isLoading">
+	<div class="loading-indicator"></div>
 </div>
