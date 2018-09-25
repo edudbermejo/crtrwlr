@@ -33,6 +33,6 @@
 	</li>
 </ul>
 <p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>
-<div class="loading-container"  ng-show="isLoading">
+<div class="loading-container"  ng-show="isLoading" arya-busy="true">
 	<div class="loading-indicator"></div>
 </div>
