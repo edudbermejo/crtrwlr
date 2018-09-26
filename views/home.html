@@ -41,7 +41,7 @@
 			</ul>
 		</div>
 		<span class="vendor-name">{{car.VendorName}}</span>
-		<span class="price">{{car.EstimatedTotalAmount}} {{car.CurrencyCode}}</span>
+		<span class="price">{{car.EstimatedTotalAmount}} {{car.CurrencyCode | customCurrency}}</span>
 	</li>
 </ul>
 <p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>
