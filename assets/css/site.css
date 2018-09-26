@@ -33,7 +33,7 @@ header, header > * {
 }
 
 h1 {
-	position: absolute;   
+	position: absolute;
 	font-size: 18px;
 }
 
@@ -59,13 +59,37 @@ ul.vehicle-list {
 	font-size: 18px;
 }
 
-ul.vehicle-list > li {
-	margin: 6px 0;
+.vehicle {
+	margin: 12px 0;
 	border: 1px solid #777;
 	padding: 10px;
 	position: relative;
 	height: 100px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.vehicle > * {
+	flex-basis: 25%;
+}
+
+.vehicle-information-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.vehicle .model {
+	font-size: 1.3em;
+}
+
+.vehicle .vendor-name {
+	text-align: center;
+}
+
+.vehicle .price {
+	font-weight: bold;
+	font-size: 2em;
 }
 
 ul.sorting {
@@ -167,11 +191,22 @@ input[type=text], input[type=search] {
 
 
 /*Loading animation*/
-.loading-indicator{
-	position:relative;	
-	margin: 20px auto;
-	text-align: center;
-	background: #000;
-	color: #fff;
-	padding: 10px;
+.loading-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 3em;
+}
+.loading-indicator {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #7f46bb;
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

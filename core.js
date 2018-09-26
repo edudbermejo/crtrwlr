@@ -22,10 +22,10 @@ config(function($routeProvider, $locationProvider) {//Sets angular routes and de
 })
 .service("VehicleSvc", ["$http", "$timeout", function ($http, $timeout) {
 	var self = this;
-	
+
 	self.loadVehicles = function (callback) {
 		$timeout(function () {//Simulate large data loading
-			//make request 								
+			//make request
 			var url = "../assets/cars.json";//same domain, remember to configure the website to allow access to this mimeType. Also is it pointing right? :)
 			$http.get(url)
 				.success(callback)
@@ -33,7 +33,7 @@ config(function($routeProvider, $locationProvider) {//Sets angular routes and de
 					alert("Sorry, something went wrong...");
 				//debugger;
 			});
-			
+
 		}, 2000);
 	};
 }])
@@ -42,9 +42,18 @@ config(function($routeProvider, $locationProvider) {//Sets angular routes and de
 		"title": "Cartrawler Demo App",
 		"author": "Developer"
 	};
-	
+
 	$scope.model = model;
 }])
+.filter('customCurrency', function() {
+  return function(input) {
+	const currencyMap = {
+		'Imperial Credit': 'ImpC',
+		'CAD': 'C$'
+	}
+    return currencyMap[input];
+  };
+})
 .controller("MainCtrl", ["$scope", "LS", "VehicleSvc", function ($scope, LS, VehicleSvc) {
 	$scope.orderBy = LS.getData("sort") || "EstimatedTotalAmount";//Gets the last user sort option or the default
 	var lastFilter = LS.getData("filter");//Gets the last user filter
