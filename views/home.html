@@ -27,21 +27,33 @@
 	</ul>
 </div>
 
-<ul class="vehicle-list">
-	<li ng-repeat="car in filteredCars = (cars | filter : search : strict) | orderBy : orderBy" class="vehicle">
-		<div class="vehicle-image-container">
-			<img ng-src="{{car.PictureURL}}" alt="car picture">
+<ul class="columns container is-multiline">
+	<li ng-repeat="car in filteredCars = (cars | filter : search : strict) | orderBy : orderBy" class="vehicle column is-half">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="title">{{car.MakeModel}}</h3>
+			</div>
+			<div class="card-content">
+				<div class="media">
+					<div class="media-left">
+						<img ng-src="{{car.PictureURL}}" alt="car picture">
+					</div>
+					<div class="media-content">
+						<ul>
+							<li class="is-size-6">{{car.FuelType}}</li>
+							<li ng-if="car.DriveType !== 'Unspecified'" class="is-size-6">Drive type: {{car.DriveType}}</li>
+							<li class="is-size-6">{{car.PassengerQuantity}} passengers ({{car.DoorCount}} doors)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="content">
+					<div class="level">
+						<span class="level-item is-size-5 has-text-left has-text-weight-semibold">{{car.VendorName}}</span>
+						<span class="level-item is-size-4 has-text-right has-text-weight-bold">{{car.EstimatedTotalAmount}} {{car.CurrencyCode | customCurrency}}</span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="vehicle-information-container">
-			<h3 class="model">{{car.MakeModel}}</h3>
-			<ul>
-				<li>{{car.FuelType}}</li>
-				<li ng-if="car.DriveType !== 'Unspecified'">Drive type: {{car.DriveType}}</li>
-				<li>{{car.PassengerQuantity}} passengers ({{car.DoorCount}} doors)</li>
-			</ul>
-		</div>
-		<span class="vendor-name">{{car.VendorName}}</span>
-		<span class="price">{{car.EstimatedTotalAmount}} {{car.CurrencyCode | customCurrency}}</span>
 	</li>
 </ul>
 <p ng-hide="filteredCars.length || isLoading" class="no-result">No results for "{{search.MakeModel}}"</p>

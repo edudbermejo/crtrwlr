@@ -54,42 +54,9 @@ span.info {
 	cursor: default;
 }
 
-ul.vehicle-list {
-	font-weight: bold;
-	font-size: 18px;
-}
-
 .vehicle {
-	margin: 12px 0;
-	border: 1px solid #777;
-	padding: 10px;
-	position: relative;
-	height: 100px;
+    height: 16em;
 	cursor: pointer;
-	display: flex;
-	align-items: center;
-}
-
-.vehicle > * {
-	flex-basis: 25%;
-}
-
-.vehicle-information-container {
-	display: flex;
-	flex-direction: column;
-}
-
-.vehicle .model {
-	font-size: 1.3em;
-}
-
-.vehicle .vendor-name {
-	text-align: center;
-}
-
-.vehicle .price {
-	font-weight: bold;
-	font-size: 2em;
 }
 
 ul.sorting {
@@ -204,6 +171,9 @@ input[type=text], input[type=search] {
     width: 5em;
     height: 5em;
     animation: spin 2s linear infinite;
+	-webkit-animation: spin 2s linear infinite;
+	-moz-animation: spin 2s linear infinite;
+	-o-animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
