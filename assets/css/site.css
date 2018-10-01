@@ -54,6 +54,12 @@ span.info {
     cursor: default;
 }
 
+@media screen and (min-width: 1280px) {
+  .container.vehicles-list{
+    width: 100%;
+  }
+}
+
 .vehicle {
     height: 16em;
     cursor: pointer;
